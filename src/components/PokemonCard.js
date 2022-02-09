@@ -1,20 +1,24 @@
-import React from "react";
-import { Card } from "semantic-ui-react";
+import React,{useState} from "react";
+import { Card,} from "semantic-ui-react";
 
-function PokemonCard() {
+function PokemonCard({pokemans}) {
+  const [side,setSide] = useState(true)
+
+  const changeSide = () => setSide(!side)
+
   return (
     <Card>
       <div>
         <div className="image">
-          <img alt="oh no!" />
+          <img onClick={changeSide} src={side? pokemans.sprites.front: pokemans.sprites.back} alt="oh no!" />
         </div>
         <div className="content">
-          <div className="header">POKEMON NAME HERE</div>
+          <div className="header">{pokemans.name}</div>
         </div>
         <div className="extra content">
           <span>
             <i className="icon heartbeat red" />
-            POKEMON HP HERE hp
+            {pokemans.hp} hp
           </span>
         </div>
       </div>
