@@ -3,7 +3,7 @@ import PokemonPage from "./PokemonPage";
 const API = 'http://localhost:3001/pokemon'
 function App() {
   const [pokemans,setPokemans] = useState([])
-
+  console.log(pokemans)
   const changePokemans = (pokeman) => {
     setPokemans(pokeman)
   }
